@@ -1,0 +1,55 @@
+2025-10-09 12:49:55 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 169 anns
+2025-10-09 12:49:55 - INFO - Starting training...
+2025-10-09 12:49:55 - INFO - Total epochs: 50
+2025-10-09 12:49:55 - INFO - Train samples: 27810
+2025-10-09 12:49:55 - INFO - Val samples: 7945
+2025-10-09 12:52:35 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 169 anns
+2025-10-09 12:52:35 - INFO - Starting training...
+2025-10-09 12:52:35 - INFO - Total epochs: 50
+2025-10-09 12:52:35 - INFO - Train samples: 27810
+2025-10-09 12:52:35 - INFO - Val samples: 7945
+2025-10-09 12:56:39 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 169 anns
+2025-10-09 12:56:39 - INFO - Starting training...
+2025-10-09 12:56:39 - INFO - Total epochs: 50
+2025-10-09 12:56:39 - INFO - Train samples: 27810
+2025-10-09 12:56:39 - INFO - Val samples: 7945
+2025-10-09 13:00:44 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 169 anns
+2025-10-09 13:00:44 - INFO - Starting training...
+2025-10-09 13:00:44 - INFO - Total epochs: 50
+2025-10-09 13:00:44 - INFO - Train samples: 27810
+2025-10-09 13:00:44 - INFO - Val samples: 7945
+2025-10-09 13:03:36 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:03:36 - INFO - Starting training...
+2025-10-09 13:03:36 - INFO - Total epochs: 50
+2025-10-09 13:03:36 - INFO - Train samples: 27810
+2025-10-09 13:03:36 - INFO - Val samples: 7945
+2025-10-09 13:06:23 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:06:23 - INFO - Starting training...
+2025-10-09 13:06:23 - INFO - Total epochs: 50
+2025-10-09 13:06:23 - INFO - Train samples: 27810
+2025-10-09 13:06:23 - INFO - Val samples: 7945
+2025-10-09 13:08:53 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:08:53 - INFO - Starting training...
+2025-10-09 13:08:53 - INFO - Total epochs: 50
+2025-10-09 13:08:53 - INFO - Train samples: 27810
+2025-10-09 13:08:53 - INFO - Val samples: 7945
+2025-10-09 13:50:43 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:50:44 - INFO - Starting training...
+2025-10-09 13:50:44 - INFO - Total epochs: 50
+2025-10-09 13:50:44 - INFO - Train samples: 27810
+2025-10-09 13:50:44 - INFO - Val samples: 7945
+2025-10-09 13:58:05 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:58:05 - INFO - Starting training...
+2025-10-09 13:58:05 - INFO - Total epochs: 50
+2025-10-09 13:58:05 - INFO - Train samples: 27810
+2025-10-09 13:58:05 - INFO - Val samples: 7945
+2025-10-09 13:58:43 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 13:58:43 - INFO - Starting training...
+2025-10-09 13:58:43 - INFO - Total epochs: 50
+2025-10-09 13:58:43 - INFO - Train samples: 27810
+2025-10-09 13:58:43 - INFO - Val samples: 7945
+2025-10-09 23:50:20 - INFO - Created COCO GT: /home/gjw/Groksar_rebuild/work_dirs/experiment/results/coco_gt.json with 184 anns
+2025-10-09 23:50:20 - INFO - Starting training...
+2025-10-09 23:50:20 - INFO - Total epochs: 50
+2025-10-09 23:50:20 - INFO - Train samples: 27810
+2025-10-09 23:50:20 - INFO - Val samples: 7945
