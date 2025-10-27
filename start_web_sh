@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# SAR Ship Detection Web Interface Launcher
+# 一键启动SAR舰船检测Web界面
+
+clear
+echo "========================================"
+echo "🚢 SAR Ship Detection Web Demo"
+echo "========================================"
+echo ""
+
+# 颜色定义
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# 检查Python
+echo -n "📦 Checking Python... "
+if ! command -v python &> /dev/null; then
+    echo -e "${RED}❌ Not found!${NC}"
+    exit 1
+fi
+PYTHON_VERSION=$(python --version 2>&1 | awk '{print $2}')
+echo -e "${GREEN}✅ ${PYTHON_VERSION}${NC}"
+
+# 检查Gradio（忽略依赖警告）
+echo -n "📦 Checking Gradio... "
+python -c "import gradio" 2>/dev/null
+if [ $? -ne 0 ]; then
+    echo -e "${YELLOW}⚠️  Not installed${NC}"
+    echo "   Installing Gradio..."
+    pip install gradio --quiet --disable-pip-version-check
+    if [ $? -eq 0 ]; then
+        echo -e "   ${GREEN}✅ Installed${NC}"
+    else
+        echo -e "   ${RED}❌ Installation failed${NC}"
+        exit 1
+    fi
+else
+    GRADIO_VERSION=$(python -c "import gradio; print(gradio.__version__)" 2>/dev/null)
+    echo -e "${GREEN}✅ ${GRADIO_VERSION}${NC}"
+fi
+
+# 检查PyTorch
+echo -n "📦 Checking PyTorch... "
+python -c "import torch" 2>/dev/null
+if [ $? -ne 0 ]; then
+    echo -e "${RED}❌ Not installed!${NC}"
+    echo ""
+    echo "Please install PyTorch first:"
+    echo "  pip install torch torchvision"
+    exit 1
+fi
+TORCH_VERSION=$(python -c "import torch; print(torch.__version__)" 2>/dev/null)
+echo -e "${GREEN}✅ ${TORCH_VERSION}${NC}"
+
+# 检查CUDA
+echo -n "🔧 Checking CUDA... "
+python -c "import torch; assert torch.cuda.is_available()" 2>/dev/null
+if [ $? -eq 0 ]; then
+    CUDA_VERSION=$(python -c "import torch; print(torch.version.cuda)" 2>/dev/null)
+    echo -e "${GREEN}✅ CUDA ${CUDA_VERSION}${NC}"
+else
+    echo -e "${YELLOW}⚠️  CPU mode (slower)${NC}"
+fi
+
+# 检查OpenCV
+echo -n "📦 Checking OpenCV... "
+python -c "import cv2" 2>/dev/null
+if [ $? -ne 0 ]; then
+    echo -e "${YELLOW}⚠️  Not installed${NC}"
+    echo "   Installing OpenCV..."
+    pip install opencv-python --quiet --disable-pip-version-check
+else
+    CV_VERSION=$(python -c "import cv2; print(cv2.__version__)" 2>/dev/null)
+    echo -e "${GREEN}✅ ${CV_VERSION}${NC}"
+fi
+
+# 检查checkpoint
+echo -n "📁 Checking checkpoint... "
+if [ ! -f "checkpoints/best_model.pth" ]; then
+    echo -e "${YELLOW}⚠️  Not found${NC}"
+    echo "   Expected: checkpoints/best_model.pth"
+    echo "   You'll need to load it manually in the web interface"
+else
+    CHECKPOINT_SIZE=$(du -h checkpoints/best_model.pth | awk '{print $1}')
+    echo -e "${GREEN}✅ Found (${CHECKPOINT_SIZE})${NC}"
+fi
+
+# 检查配置文件
+echo -n "📝 Checking config... "
+if [ ! -f "config/sar_ship_config.py" ]; then
+    echo -e "${RED}❌ Config file missing!${NC}"
+    exit 1
+fi
+echo -e "${GREEN}✅${NC}"
+
+# 检查模型文件
+echo -n "🧠 Checking model files... "
+if [ ! -f "models/detectors/denodet_enhanced.py" ]; then
+    echo -e "${RED}❌ Model files missing!${NC}"
+    exit 1
+fi
+echo -e "${GREEN}✅${NC}"
+
+echo ""
+echo "========================================"
+echo "🚀 Starting Web Interface..."
+echo "========================================"
+echo ""
+echo "Server will start at:"
+echo "   Local:   http://localhost:7860"
+echo "   Network: http://$(hostname -I | awk '{print $1}'):7860"
+echo ""
+echo "Press Ctrl+C to stop the server"
+echo ""
+echo "----------------------------------------"
+
+# 启动应用（抑制pip警告）
+export PYTHONWARNINGS="ignore"
+python app.py 2>&1 | grep -v "dependency conflicts" | grep -v "botocore" | grep -v "openxlab"
